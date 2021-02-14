@@ -30,15 +30,15 @@
     <section class="images">
       <div class="justify-content-between align-items-center mt-3 gallery-header mb-2">
         <h3 class="head-title text-center">Select image for create slider</h3>
+        <div class="select-image-count">
+          <p id="image-count"></p>
+        </div>
         <div class="input-group col-md-5 mb-5 mb-md-0">
           <input class="form-control mr-3" id="duration" placeholder="slider change duration">
           <button id="create-slider" class="btn btn-primary px-5">Create slider</button>
         </div>
-        
       </div>
-      <div class="select-image-count">
-        <p id="image-count"></p>
-      </div>
+      
       <div class="row gallery my-5">
         
       </div>
@@ -61,10 +61,6 @@
         <span class="dot" onclick="changeItem(-1)"></span>
         <span class="dot" onclick="changeItem(1)"></span>
       </div>
-    </div>
-
-    <div id="imgPreview" class="imagePreview">
-      
     </div>
     
   </div>

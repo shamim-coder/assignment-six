@@ -63,14 +63,9 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.image-area {
+.image-icons-container {
   position: relative;
-}
-.image-area i {
-  position: absolute;
-  top: 15px;
-  left: 30px;
-  cursor:zoom-in
+  overflow: hidden;
 }
 .form-inline {
   position: relative;
@@ -82,9 +77,36 @@ img {
     left: 256px;
     font-size: 12px;
 }
+#image-count {
+  margin: 0;
+  margin-right: 90px;
+}
 .imagePreview {
   position: absolute;
 }
+.image-icons {
+  position: absolute;
+    bottom: -40px;
+    text-align: center;
+    width: 96%;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: #3333337a;
+    transition: .3s;
+    padding: 5px;
+    margin-left: 1px;
+}
+.image-icons-container:hover .image-icons {
+  bottom: 5px;
+  visibility: visible;
+}
+.image-icons i {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
     flex-direction: column;

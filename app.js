@@ -25,9 +25,20 @@ const showImages = (images) => {
 
   images.forEach(image => {
     const div = document.createElement('div');
-    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-4 image-area';
+    const mainDiv = document.createElement('div');
+    const iconDiv = document.createElement('div');
+    mainDiv.appendChild(div)
+    
+    iconDiv.className='image-icons'
+    div.className='image-icons-container'
+    iconDiv.innerHTML = `
+    <i class="far fa-thumbs-up"> ${image.likes} </i> 
+    <i class="far fa-star"> ${image.favorites} </i>
+    <i class="far fa-comment"> ${image.comments} </i>`;
+    mainDiv.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-4 image-area';
     div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
-    gallery.appendChild(div)
+    div.appendChild(iconDiv)
+    gallery.appendChild(mainDiv)
 
   })
 
