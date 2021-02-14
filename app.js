@@ -6,6 +6,7 @@ const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const searchInput = document.getElementById('search')
 const duration = document.getElementById('duration')
+const imageCount = document.getElementById('image-count');
 // selected image 
 let sliders = [];
 
@@ -28,9 +29,9 @@ const showImages = (images) => {
     const mainDiv = document.createElement('div');
     const iconDiv = document.createElement('div');
     mainDiv.appendChild(div)
-    
-    iconDiv.className='image-icons'
-    div.className='image-icons-container'
+
+    iconDiv.className = 'image-icons'
+    div.className = 'image-icons-container'
     iconDiv.innerHTML = `
     <i class="far fa-thumbs-up"> ${image.likes} </i> 
     <i class="far fa-star"> ${image.favorites} </i>
@@ -52,11 +53,7 @@ const getImages = (query) => {
     .catch(err => console.log(err))
 }
 
-const count = () => {
-  const imageSelectCount = document.getElementById('image-count');
-  imageSelectCount.innerText = `${sliders.length} Image Selected`;
-}
-
+// Select Image Item
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
@@ -65,12 +62,12 @@ const selectItem = (event, img) => {
   
   if (item === -1) {
     sliders.push(img);
-    count();
+    
   } else if (item || item === 0) {
     sliders.splice(item, 1);
-    count();
   }
-  
+
+  imageCount.innerText = `${sliders.length} Images Selected`;
 }
 var timer
 const createSlider = () => {
@@ -148,8 +145,8 @@ const enterPress = (inputId, btnId) => {
 enterPress(searchInput, searchBtn)
 enterPress(duration, sliderBtn)
 
+// Search Images
 searchBtn.addEventListener('click', () => {
-
   if (search.value === '') {
     searchInput.placeholder = 'Please fill the input box'
   } else {
@@ -160,6 +157,7 @@ searchBtn.addEventListener('click', () => {
     const search = document.getElementById('search');
     getImages(search.value)
     sliders.length = 0;
+    imageCount.innerText = ''
     search.value = ''
   }
 })
