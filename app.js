@@ -153,6 +153,7 @@ searchBtn.addEventListener('click', () => {
   if (search.value === '') {
     searchInput.placeholder = 'Please fill the input box'
   } else {
+    gallery.innerHTML = ''
     document.querySelector('.main').style.display = 'none';
     searchInput.placeholder = 'nature'
     clearInterval(timer);
