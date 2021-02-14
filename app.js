@@ -147,19 +147,15 @@ enterPress(duration, sliderBtn)
 
 // Search Images
 searchBtn.addEventListener('click', () => {
-  if (search.value === '') {
-    searchInput.placeholder = 'Please fill the input box'
-  } else {
-    gallery.innerHTML = ''
-    document.querySelector('.main').style.display = 'none';
-    searchInput.placeholder = 'nature'
-    clearInterval(timer);
-    const search = document.getElementById('search');
-    getImages(search.value)
-    sliders.length = 0;
-    imageCount.innerText = ''
-    search.value = ''
-  }
+  gallery.innerHTML = ''
+  document.querySelector('.main').style.display = 'none';
+  searchInput.placeholder = 'nature'
+  clearInterval(timer);
+  const search = document.getElementById('search');
+  getImages(search.value)
+  sliders.length = 0;
+  imageCount.innerText = ''
+  search.value = ''
 })
 
 sliderBtn.addEventListener('click', () => {
