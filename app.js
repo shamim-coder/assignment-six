@@ -149,7 +149,6 @@ enterPress(duration, sliderBtn)
 searchBtn.addEventListener('click', () => {
   gallery.innerHTML = ''
   document.querySelector('.main').style.display = 'none';
-  searchInput.placeholder = 'nature'
   clearInterval(timer);
   const search = document.getElementById('search');
   getImages(search.value)
