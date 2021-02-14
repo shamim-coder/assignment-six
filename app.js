@@ -22,13 +22,15 @@ const showImages = (images) => {
   // show gallery title
   galleryHeader.style.display = 'flex';
   setSpinner()
+
   images.forEach(image => {
-    let div = document.createElement('div');
-    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2 image-area';
+    const div = document.createElement('div');
+    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-4 image-area';
     div.innerHTML = `<img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div)
+
   })
-  
+
 }
 
 const getImages = (query) => {
@@ -49,6 +51,7 @@ const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
   let item = sliders.indexOf(img);
+  
   if (item === -1) {
     sliders.push(img);
     count();
@@ -56,6 +59,7 @@ const selectItem = (event, img) => {
     sliders.splice(item, 1);
     count();
   }
+  
 }
 var timer
 const createSlider = () => {
@@ -89,7 +93,7 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
   })
   changeSlide(0)
-  timer = setInterval( () => {
+  timer = setInterval(() => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
@@ -120,28 +124,26 @@ const changeSlide = (index) => {
 
   items[index].style.display = "block"
 }
- 
+
 // Add Key Press Event
 const enterPress = (inputId, btnId) => {
-  inputId.addEventListener('keypress', function(event) {
-    if(event.key === 'Enter'){
+  inputId.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
       btnId.click()
     }
   })
 }
-enterPress(searchInput,searchBtn)
-enterPress(duration,sliderBtn)
 
+enterPress(searchInput, searchBtn)
+enterPress(duration, sliderBtn)
 
+searchBtn.addEventListener('click', () => {
 
-
-searchBtn.addEventListener('click', function () {
-  
-  if(search.value === ''){
-    document.getElementById('error-message').classList.remove('invisible')
+  if (search.value === '') {
+    searchInput.placeholder = 'Please fill the input box'
   } else {
     document.querySelector('.main').style.display = 'none';
-    document.getElementById('error-message').classList.add('invisible')
+    searchInput.placeholder = 'nature'
     clearInterval(timer);
     const search = document.getElementById('search');
     getImages(search.value)
@@ -150,7 +152,7 @@ searchBtn.addEventListener('click', function () {
   }
 })
 
-sliderBtn.addEventListener('click', function () {
+sliderBtn.addEventListener('click', () => {
   createSlider()
 })
 

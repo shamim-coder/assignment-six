@@ -72,8 +72,18 @@ img {
   left: 30px;
   cursor:zoom-in
 }
-.error {
+.form-inline {
+  position: relative;
+}
+#error-message {
   color: red;
+    position: absolute;
+    top: 40px;
+    left: 256px;
+    font-size: 12px;
+}
+.imagePreview {
+  position: absolute;
 }
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
